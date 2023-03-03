@@ -1,7 +1,9 @@
-const array1 = ["a", "b", "c", "x"];
-const array2 = ["z", "y", "a"];
-
-const containsCommonItem = (a1, a2) => {
-  return a1.some((el) => a2.includes(el));
-};
-containsCommonItem(array1, array2);
+function findOdd(A) {
+    return A.sort().reduce((acc, curr) => {
+      const latest = acc.at(-1)
+      if (A.indexOf(curr) === 0 || curr === latest[0])
+      {latest.push(curr)} else {acc.push([curr]);}
+      return acc;
+    }, [[]]).filter((el) => el.length % 2 !== 0)[0][0];
+    }
+    
