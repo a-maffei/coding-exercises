@@ -9,7 +9,7 @@ function solution(N) {
       let result = 0;
       for (let j = i + 1; j < binary.length; j++) {
         if (binary[j] === "0") {
-          result += 1;
+          result++;
         } else {
           resultsArray.push(result);
           break;
