@@ -1,3 +1,5 @@
+//bubble sort O(n2)
+
 function bubble(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length - 1 - i; j++) {
@@ -11,6 +13,8 @@ function bubble(arr) {
 }
 
 bubble([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
+
+//merge sort O(nlogn)
 
 function merge(left, right) {
   const sorted = [];
@@ -42,8 +46,6 @@ function mergeSort(arr) {
   const mid = Math.floor(n / 2);
   const leftArray = arr.slice(0, mid);
   const rightArray = arr.slice(mid);
-
-  console.log(leftArray, rightArray);
 
   const sortedLeft = mergeSort(leftArray);
   const sortedRight = mergeSort(rightArray);
