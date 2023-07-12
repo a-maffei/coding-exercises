@@ -58,3 +58,33 @@ function memoizeFactorial() {
 const memoizedFactorial = memoizeFactorial();
 memoizedFactorial(4);
 memoizedFactorial(4);
+
+// factorial memoized with Map
+
+const factorialNew = (n) => {
+  if (n === 1 || n === 0) {
+    return n;
+  }
+
+  return n * factorialNew(n - 1);
+};
+
+const memoizeFactorialWithMap = (fn) => {
+  const cache = new Map();
+
+  return (n) => {
+    console.log("This isn't new to me");
+    if (cache.has(n)) {
+      return cache.get(n);
+    } else {
+      console.log("This is new to me");
+      const result = fn(n);
+      cache.set(n, result);
+      return result;
+    }
+  };
+};
+
+const memoizeFactorial = memoizeFactorialWithMap(factorialNew);
+memoizeFactorial(4);
+memoizeFactorial(4);

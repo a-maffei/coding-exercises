@@ -1,3 +1,28 @@
+//memoization with Map
+const multiplyBy3 = (n) => n * 3;
+
+const memoizeWithMap = (fn) => {
+  const cacheMap = new Map();
+
+  return (...args) => {
+    if (cacheMap.has(args[0])) {
+      console.log("This isn't new to me");
+      return cacheMap.get(args[0]);
+    } else {
+      console.log("This is new to me");
+      const result = fn.call(this, ...args);
+      cacheMap.set(args[0], result);
+      return result;
+    }
+  };
+};
+
+const memoizedMultiplyBy3 = memoizeWithMap(multiplyBy3);
+memoizedMultiplyBy3(9);
+memoizedMultiplyBy3(9);
+
+//memoization with an object
+
 const multiplyBy10 = (n) => n * 10;
 
 const memoize = (cb) => {
